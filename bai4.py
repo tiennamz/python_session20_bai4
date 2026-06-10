@@ -82,10 +82,7 @@ def sign_player(roster_list):
 
         except ValueError:
             print("Lương phải là số. Vui lòng nhập lại.")
-            logging.warning(
-                "Failed to sign player - Invalid salary input"
-            )
-
+            logging.warning("Failed to sign player - Invalid salary input")
     roster_list.append({
         "player_id": player_id,
         "name": name,
@@ -130,9 +127,7 @@ def update_player_status(roster_list):
 
         while True:
             try:
-                new_salary = float(
-                    input("Nhập mức lương mới: ")
-                )
+                new_salary = float(input("Nhập mức lương mới: "))
 
                 if new_salary <= 0:
                     print("Lương phải lớn hơn 0.")
@@ -147,9 +142,7 @@ def update_player_status(roster_list):
 
         print(f"Thành công: Đã cập nhật lương cho tuyển thủ {player_id}.")
 
-        logging.info(
-            f"Updated player {player_id} salary "
-            f"from {old_salary} to {new_salary}"
+        logging.info(f"Updated player {player_id} salary from {old_salary} to {new_salary}"
         )
 
     elif choice == "2":
@@ -175,10 +168,7 @@ def update_player_status(roster_list):
 
         print(f"Thành công: Đã cập nhật trạng thái cho tuyển thủ {player_id}.")
 
-        logging.info(
-            f"Updated player {player_id} status "
-            f"from {old_status} to {player['status']}"
-        )
+        logging.info(f"Updated player {player_id} status from {old_status} to {player['status']}")
 
     else:
         print("Lựa chọn không hợp lệ.")
@@ -218,17 +208,13 @@ def generate_payroll_report(roster_list):
 
     except KeyError as e:
         print("Lỗi: Một tuyển thủ đang bị thiếu dữ liệu.")
-        logging.error(
-            f"Missing key while generating payroll report: {e}"
-        )
+        logging.error(f"Missing key while generating payroll report: {e}")
         total_payroll = 0
 
     print("-" * 85)
     print(f"Tổng quỹ lương hàng tháng: {total_payroll:,.1f}")
 
-    logging.info(
-        f"Generated monthly payroll report. Total: {total_payroll}"
-    )
+    logging.info(f"Generated monthly payroll report. Total: {total_payroll}")
 
 
 def main():
